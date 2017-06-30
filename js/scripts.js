@@ -1,12 +1,23 @@
 //Business logic//
-var token = "bd6d25878528c8f00e0f5900e4c037106ec8db91";
-function Repos() {}
+var token = require('./../.env').token;
 
-Repos.prototype.getRepos = function(username) {
-  $.get('http://api.github.com/users/' + username + 'access_token=' + token).then(function(response) {
-    console.log(response);
+
+Repos=function() {};
+
+Repos.prototype.getUser = function(username, displayFunction) {
+  $.get('http://api.github.com/users/' + username + 'access_token=' + token).then(function(users) {
+    displayFunction(users);
   }).fail(function(error) {
-    console.log(error.responseJSON.message)
+    $('.result').text(error.responseJSON.message)
+  });
+}
+
+
+Repos.prototype.getRepos = function(username, displayFunction) {
+  $.get('http://api.github.com/users/' + username + '/repos?access_token=' + token).then(function(repos) {
+    displayFunction(repos);
+  }).fail(function(error) {
+    $('.result').text(error.responseJSON.message)
   });
 }
 

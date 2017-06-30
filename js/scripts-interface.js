@@ -1,14 +1,6 @@
 var Repos = require('./../js/github.js').reposModule;
 
 
-var displayUser = function(user) {
-  // users.forEach(function(user) {
-  $('ul#userPic').empty();
-  $('ul#userPic').append("<li>" + user.name + "</li > ");
-  // });
-};
-
-
 var displayData = function(repos) {
   $('ul#repoUrl').empty();
   repos.forEach(function(repo) {
@@ -18,13 +10,12 @@ var displayData = function(repos) {
 
 
 $(document).ready(function() {
+  event.preventDefault();
   var searchUsers = new Repos();
   $('#searchName').click(function() {
-    //get input value
-    var name = $('#userName').val();
-    // $('#userPic').val("");
-    console.log(name);
-    searchUsers.getUser(name, displayUser);
-    searchUsers.getRepos(name, displayData);
+    var username = $('#userName').val();
+    console.log(username);
+    searchUsers.getUser(username, displayUser);
+    searchUsers.getRepos(username, displayData);
   });
 });

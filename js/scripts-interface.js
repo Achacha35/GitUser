@@ -1,10 +1,9 @@
-var Git = require('./../js/scripts.js').gitModule;
-
+var Repos = require('./../js/scripts.js').getRepos;
 $(document).ready(function() {
-  var currentUser = new Git();
+  var reposDisplayed = new Repos();
   $('#getuser').click(function() {
     var user = $('#userid').val();
     $('#userid').val("");
-    currentUser.getGit(city);
+    reposDisplayed.getRepos(city);
   });
 });

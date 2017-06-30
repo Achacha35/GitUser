@@ -1,9 +1,10 @@
-var Repos = require('./../js/scripts.js').getRepos;
+var Repos = require('./../js/scripts.js').weatherModule;
+
 $(document).ready(function() {
-  var reposDisplayed = new Repos();
+  var currentReposObject = new Repos();
   $('#getuser').click(function() {
-    var user = $('#userid').val();
+    var username = $('#userid').val();
     $('#userid').val("");
-    reposDisplayed.getRepos(city);
+    currentReposObject.getRepos(username);
   });
 });

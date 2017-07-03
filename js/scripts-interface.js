@@ -3,9 +3,9 @@ var Repos = require('./../js/github.js').reposModule;
 
 
 var displayData = function(repos) {
-  $('ul#repoUrl').empty();
+  $('ul#displayRepo').empty();
   repos.forEach(function(repo) {
-    $('ul#repoUrl').append("<li><a href='" + repo.html_url + "'>" + repo.name + "</a>: " + repo.description + "; created on " + repo.created_at + "</li > ");
+    $('ul#displayRepo').append("<li><a href='" + repo.html_url + "'>" + repo.name + "</a>: " + repo.description + "; created on " + repo.created_at + "</li > ");
   });
 };
 

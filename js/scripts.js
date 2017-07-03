@@ -2,7 +2,7 @@
 var apiKey = require('./../.env').apiKey;
 
 Repos = function() {};
-Repos.prototype.getUser = function(username, displayFunction) {
+Repos.prototype.getUser = function(user name, displayFunction) {
   $.get('https://api.github.com/users/' + username + '?access_token=' + apiKey).then(function(users) {
     displayFunction(users);
   }).fail(function(error) {
